@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class DisappearScript : MonoBehaviour {
+public class BodyScript : MonoBehaviour {
 	private GameScript gameScript;
 	
 	public bool should_disappear_under_time = true;
@@ -23,7 +23,11 @@ public class DisappearScript : MonoBehaviour {
 	}
 
 	IEnumerator DisappearCoroutine() {
-		yield return new WaitForSeconds (2f * GameScript.snake_length);
+		yield return new WaitForSeconds (1f * GameScript.snake_length);
+
+		this.tag = "SnakeBody";
+
+		yield return new WaitForSeconds (1f * GameScript.snake_length);
 
 		Destroy (this.gameObject);
 
