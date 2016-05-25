@@ -23,7 +23,7 @@ public class BodyScript : MonoBehaviour {
 	}
 
 	IEnumerator DisappearCoroutine() {
-		yield return new WaitForSeconds (1f * GameScript.snake_length);
+		yield return new WaitForSeconds (0.1f * GameScript.snake_length);
 
 		this.tag = "SnakeBody";
 
