@@ -48,7 +48,7 @@ public class HeadScript : MonoBehaviour
 
 	void OnTriggerEnter2D(Collider2D collider) {
 		if (collider.tag == "SnakeBody") {
-			GameScript.GameOver = true;
+			GameScript.gameOver = true;
 			Time.timeScale = 0; //Pause the game
 		}
 	}
@@ -56,7 +56,7 @@ public class HeadScript : MonoBehaviour
 	void OnCollisionEnter2D(Collision2D collision){
 		Debug.Log ("Collision");
 		if (collision.collider.tag == "SnakeBody") {
-			GameScript.GameOver = true;
+			GameScript.gameOver = true;
 			Time.timeScale = 0; //Pause the game
 		}
 	}

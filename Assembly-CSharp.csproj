@@ -46,9 +46,11 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\BodyScript.cs" />
+     <Compile Include="Assets\DetectorScript.cs" />
      <Compile Include="Assets\EdgeScript.cs" />
      <Compile Include="Assets\GameScript.cs" />
      <Compile Include="Assets\HeadScript.cs" />
+     <Compile Include="Assets\SlimeScript.cs" />
  <Reference Include="UnityEngine.Networking">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
  </Reference>

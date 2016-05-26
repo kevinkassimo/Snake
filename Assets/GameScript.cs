@@ -7,20 +7,21 @@ public class GameScript : MonoBehaviour {
 
 	public static int lowest_snake_layer = 1000;
 
-	public static bool GameOver = false;
+	public static bool gameOver = false;
+
+	public static Sprite[] slimes = Resources.LoadAll<Sprite> ("Slimes") as Sprite[];
 
 	// Use this for initialization
 	void Start () {
-	
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		snake_length += 0.005f;
+		snake_length += 0.05f;
 	}
 
 	void OnGUI () {
-		if (GameOver) {
+		if (gameOver) {
 			GUI.Label (new Rect(Screen.width / 2, Screen.height / 2, 200f, 200f), "Game Over"); //Display message
 		}
 	}
