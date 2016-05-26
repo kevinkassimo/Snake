@@ -15,7 +15,7 @@ public class EdgeScript : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D collider) {
-		if (collider.tag == "Snake") {
+		if (collider.tag == "Snake" || collider.tag == "Slime") {
 			switch(dir)
 			{
 			case 'd':
