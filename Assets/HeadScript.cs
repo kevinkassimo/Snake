@@ -10,6 +10,7 @@ public class HeadScript : MonoBehaviour
 	void Awake ()
 	{
 		gameScript = GameObject.FindObjectOfType<GameScript> ();
+
 	}
 
 	// Use this for initialization
@@ -47,6 +48,14 @@ public class HeadScript : MonoBehaviour
 
 	void OnTriggerEnter2D(Collider2D collider) {
 		if (collider.tag == "SnakeBody") {
+			GameScript.GameOver = true;
+			Time.timeScale = 0; //Pause the game
+		}
+	}
+
+	void OnCollisionEnter2D(Collision2D collision){
+		Debug.Log ("Collision");
+		if (collision.collider.tag == "SnakeBody") {
 			GameScript.GameOver = true;
 			Time.timeScale = 0; //Pause the game
 		}

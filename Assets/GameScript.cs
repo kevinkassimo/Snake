@@ -16,7 +16,7 @@ public class GameScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		snake_length += 0.001f;
+		snake_length += 0.005f;
 	}
 
 	void OnGUI () {
