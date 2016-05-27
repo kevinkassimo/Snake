@@ -2,7 +2,9 @@
 using System.Collections;
 
 public class BodyScript : MonoBehaviour {
-	
+	public static int count = 0;
+	public GameObject tracePrefab;
+
 	public bool should_disappear_under_time = true;
 
 	// Use this for initialization
@@ -18,14 +20,20 @@ public class BodyScript : MonoBehaviour {
 	}
 
 	IEnumerator DisappearCoroutine() {
-		float time = 0.2f * GameScript.snake_length;
-
-		yield return new WaitForSeconds (time);
+		yield return new WaitForSeconds (0.1f * GameScript.snake_length);
 
 		this.tag = "SnakeBody";
-		this.gameObject.layer = 10;
 
-		yield return new WaitForSeconds (5*time);
+		yield return new WaitForSeconds (1f * GameScript.snake_length);
+
+
+		if (count == 10) {
+			//Instantiate (tracePrefab, this.transform.position, Quaternion.identity);
+			Instantiate (tracePrefab, this.transform.position, transform.rotation);
+			count = 0;
+		}
+
+		count++;
 
 		Destroy (this.gameObject);
 
