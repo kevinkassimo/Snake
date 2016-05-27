@@ -6,6 +6,7 @@ public class SlimeScript : MonoBehaviour {
 	private int time;
 	private int scale;
 	public bool escaping;
+
 	// Use this for initialization
 	void Start () {
 		if (this.gameObject != null) {

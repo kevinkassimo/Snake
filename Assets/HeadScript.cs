@@ -45,7 +45,7 @@ public class HeadScript : MonoBehaviour
 		while (true) {
 			prevPos = transform.position;
 			yield return new WaitForSeconds (0.01f * GameScript.speed);
-			GameObject GO = Instantiate (ballPrefab, prevPos, Quaternion.identity) as GameObject;
+			GameObject GO = Instantiate (ballPrefab, prevPos, transform.rotation) as GameObject;
 			GO.GetComponent<SpriteRenderer> ().sortingOrder = GameScript.lowest_snake_layer;
 			GameScript.lowest_snake_layer++;
 		}
