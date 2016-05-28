@@ -3,9 +3,14 @@ using System.Collections;
 
 public class DetectorScript : MonoBehaviour {
 
+	SlimeScript slimeScript;
+
 	GameObject parent;
+
+	Vector2 escapeDirection;
 	// Use this for initialization
 	void Start () {
+		slimeScript = GetComponent<SlimeScript> ();
 		parent = this.transform.parent.gameObject;
 	}
 	
@@ -17,9 +22,9 @@ public class DetectorScript : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D collider) {
 		if (gameObject != null) {
 			if (collider.tag == "SnakeTransition") {
-				Vector2 escapeDirection = new Vector2 ((this.transform.position.x - collider.transform.position.x), (this.transform.position.y - collider.transform.position.y));
+				escapeDirection = new Vector2 ((this.transform.position.x - collider.transform.position.x), (this.transform.position.y - collider.transform.position.y));
 				escapeDirection.Normalize ();
-				escapeDirection *= 8;
+				escapeDirection *= 4;
 				parent.GetComponent<Rigidbody2D> ().AddForce (escapeDirection);
 				parent.GetComponent<SlimeScript> ().escaping = true;
 			}
@@ -29,6 +34,8 @@ public class DetectorScript : MonoBehaviour {
 	void OnTriggerExit2D(Collider2D collider) {
 		if (gameObject != null) {
 			if (collider.tag == "SnakeTransition") {
+				parent.GetComponent<Rigidbody2D> ().velocity = parent.GetComponent<Rigidbody2D> ().velocity * 0.2f;
+				//parent.GetComponent<Rigidbody2D> ().AddForce (-10 * escapeDirection);
 				parent.GetComponent<SlimeScript> ().escaping = false;
 			}
 		}

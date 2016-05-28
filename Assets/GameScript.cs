@@ -9,11 +9,16 @@ public class GameScript : MonoBehaviour {
 
 	public static bool gameOver = false;
 
-	public static Sprite[] slimes = Resources.LoadAll<Sprite> ("Slimes") as Sprite[];
+	public static Sprite[] slimes;
 
 	public static float speed;
 
 	public static int speedingTime;
+
+	void Awake () {
+		slimes = Resources.LoadAll<Sprite> ("Slimes") as Sprite[];
+	}
+
 
 	// Use this for initialization
 	void Start () {
