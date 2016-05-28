@@ -65,7 +65,7 @@ public class HeadScript : MonoBehaviour
 			GameScript.gameOver = true;
 			Time.timeScale = 0; //Pause the game
 		} else if (collision.collider.tag == "SpeedPotion") {
-			GameScript.speedingTime = 500;
+			GameScript.speedingTime += 100;
 			Destroy (collision.collider.gameObject);
 		}
 	}
