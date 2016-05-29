@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class GameScript : MonoBehaviour {
 
@@ -14,6 +15,9 @@ public class GameScript : MonoBehaviour {
 	public static float speed;
 
 	public static int speedingTime;
+
+	public static List<Vector2> traceList = new List<Vector2>();
+
 
 	void Awake () {
 		slimes = Resources.LoadAll<Sprite> ("Slimes") as Sprite[];

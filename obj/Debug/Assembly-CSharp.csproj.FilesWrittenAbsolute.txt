@@ -15,3 +15,11 @@
 /Users/Qianmeng/Documents/Snake/Temp/bin/Debug/Unity.CecilTools.dll
 /Users/Qianmeng/Documents/Snake/Temp/bin/Debug/Mono.Cecil.Pdb.dll
 /Users/Qianmeng/Documents/Snake/Temp/bin/Debug/Mono.Cecil.Mdb.dll
+/Users/Qianmeng/Documents/Snake/Temp/bin/Debug/DemiLib.dll
+/Users/Qianmeng/Documents/Snake/Temp/bin/Debug/DOTween.dll
+/Users/Qianmeng/Documents/Snake/Temp/bin/Debug/DOTween43.dll
+/Users/Qianmeng/Documents/Snake/Temp/bin/Debug/DOTween46.dll
+/Users/Qianmeng/Documents/Snake/Temp/bin/Debug/DOTween50.dll
+/Users/Qianmeng/Documents/Snake/Temp/bin/Debug/DOTweenPro.dll
+/Users/Qianmeng/Documents/Snake/Temp/bin/Debug/Assembly-CSharp-firstpass.dll
+/Users/Qianmeng/Documents/Snake/Temp/bin/Debug/Assembly-CSharp-firstpass.dll.mdb

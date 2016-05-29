@@ -1,7 +1,10 @@
 ﻿using UnityEngine;
+using System;
 using System.Collections;
+using System.Collections.Generic;
 
-public class TraceScript : MonoBehaviour {
+public class TraceScript : MonoBehaviour
+{
 
 	private SpriteRenderer spriteRenderer;
 
@@ -16,21 +19,23 @@ public class TraceScript : MonoBehaviour {
 	private float frac_journey;
 	private float journey_length = 1f;
 
-
 	public GameObject wallPrefab;
 
-	void Awake () {
+	void Awake ()
+	{
 	}
 
 	// Use this for initialization
-	void Start () {
+	void Start ()
+	{
 		
 		//journey_length = GetColorDiffMagnitude (color, color_1);
 		StartCoroutine (SolidateCoroutine ());
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+	{
 		if (first_color_pass) {
 			Instantiate (wallPrefab, transform.position, Quaternion.identity);
 			Destroy (gameObject);
@@ -52,9 +57,10 @@ public class TraceScript : MonoBehaviour {
 		}
 	}
 
-	IEnumerator SolidateCoroutine() {
+	IEnumerator SolidateCoroutine ()
+	{
 		int i = 0;
-		while (i < 100) {
+		while (i < 500) {
 			yield return new WaitForSeconds (0.05f);
 			i++;
 		}
@@ -62,4 +68,30 @@ public class TraceScript : MonoBehaviour {
 		yield break;
 	}
 
+	void OnTriggerEnter2D (Collider2D collider)
+	{
+		if (collider.tag == "Snake") {
+			Vector2[] trace = GameScript.traceList.ToArray ();
+			int index = Array.IndexOf (trace, transform.position);
+			List<Vector2> tempList = new List<Vector2> ();
+			for (int i = index; i < trace.Length; i++) {
+				tempList.Add (trace [i]);
+			}
+
+			Vector2[] bubble = tempList.ToArray ();
+
+			//const int size = trace.Length - index;
+			//Vector2[] bubble = new Vector2[1000]{ };
+			if (index >= 0) {
+				//Array.Copy (trace, index, bubble, 0, trace.Length - index);
+				GameObject bubbleTrap = new GameObject ("bubbleTrap");
+				bubbleTrap.AddComponent<PolygonCollider2D> ();
+				bubbleTrap.AddComponent<BubbleScript> ();
+				bubbleTrap.GetComponent<PolygonCollider2D> ().pathCount = bubble.Length;
+				bubbleTrap.GetComponent<PolygonCollider2D> ().points = bubble;
+
+			}
+
+		}
+	}
 }
