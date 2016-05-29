@@ -49,6 +49,7 @@ public class WallScript : MonoBehaviour {
 	void OnCollisionEnter2D(Collision2D collision) {
 		if (collision.collider.tag == "SnakeTransition") {
 			GameScript.gameOver = true;
+			Time.timeScale = 0;
 		}
 	}
 		
