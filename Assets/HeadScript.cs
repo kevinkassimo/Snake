@@ -5,6 +5,10 @@ public class HeadScript : MonoBehaviour
 {
 
 	public GameObject ballPrefab;
+	public GameObject firePrefab;
+	private GameObject currFire;
+
+	public bool is_firing = false;
 
 	// Use this for initialization
 	void Start ()
@@ -35,6 +39,37 @@ public class HeadScript : MonoBehaviour
 			}
 		} else {
 			GameScript.speed = 1f;
+		}
+
+		if (Input.GetKey (KeyCode.F)) {
+			if(GameScript.fireTime > 0) {
+				if (is_firing == false) {
+					currFire = Instantiate (firePrefab, transform.position, transform.rotation) as GameObject;
+					is_firing = true;
+				} else {
+					currFire.transform.position = transform.position;
+					currFire.transform.rotation = transform.rotation;
+				}
+				GameScript.fireTime--;
+				Debug.Log ("Firing!!!");
+			} else {
+				is_firing = false;
+				if (currFire != null) {
+					Destroy (currFire);
+					currFire = null;
+				}
+				Debug.Log ("Out of speeding potion");
+			} 
+		}
+
+		if (Input.GetKeyUp (KeyCode.F)) {
+			if (is_firing == true) {
+				if (currFire != null) {
+					Destroy (currFire);
+					currFire = null;
+				}
+				is_firing = false;
+			}
 		}
 	}
 
@@ -67,6 +102,9 @@ public class HeadScript : MonoBehaviour
 			Time.timeScale = 0; //Pause the game
 		} else if (collision.collider.tag == "SpeedPotion") {
 			GameScript.speedingTime += 100;
+			Destroy (collision.collider.gameObject);
+		} else if (collision.collider.tag == "FirePotion") {
+			GameScript.fireTime += 100;
 			Destroy (collision.collider.gameObject);
 		}
 	}
