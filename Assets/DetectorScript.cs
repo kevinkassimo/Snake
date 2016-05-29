@@ -24,7 +24,7 @@ public class DetectorScript : MonoBehaviour {
 			if (collider.tag == "SnakeTransition") {
 				escapeDirection = new Vector2 ((this.transform.position.x - collider.transform.position.x), (this.transform.position.y - collider.transform.position.y));
 				escapeDirection.Normalize ();
-				escapeDirection *= 4;
+				escapeDirection *= parent.GetComponent<SlimeScript> ().color;
 				parent.GetComponent<Rigidbody2D> ().AddForce (escapeDirection);
 				parent.GetComponent<SlimeScript> ().escaping = true;
 			}
