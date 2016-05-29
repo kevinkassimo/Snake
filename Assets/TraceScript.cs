@@ -60,7 +60,7 @@ public class TraceScript : MonoBehaviour
 	IEnumerator SolidateCoroutine ()
 	{
 		int i = 0;
-		while (i < 500) {
+		while (i < 200) {
 			yield return new WaitForSeconds (0.05f);
 			i++;
 		}

@@ -1,13 +1,16 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/TraceScript.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/HeadScript.cs">
     <Files>
-      <File FileName="Assets/TraceScript.cs" Line="57" Column="17" />
-      <File FileName="Assets/WallScript.cs" Line="1" Column="1" />
-      <File FileName="Assets/HeadScript.cs" Line="1" Column="1" />
-      <File FileName="Assets/SlimeScript.cs" Line="1" Column="1" />
       <File FileName="Assets/BodyScript.cs" Line="1" Column="1" />
+      <File FileName="Assets/TraceScript.cs" Line="21" Column="31" />
+      <File FileName="Assets/WallScript.cs" Line="1" Column="1" />
+      <File FileName="Assets/HeadScript.cs" Line="42" Column="11" />
+      <File FileName="Assets/SlimeScript.cs" Line="31" Column="1" />
       <File FileName="Assets/DetectorScript.cs" Line="27" Column="65" />
+      <File FileName="Assets/Menu/Loadlevel.cs" Line="19" Column="3" />
+      <File FileName="Assets/PotionScript.cs" Line="31" Column="35" />
+      <File FileName="Assets/GameScript.cs" Line="18" Column="29" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

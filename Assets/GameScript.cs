@@ -16,6 +16,8 @@ public class GameScript : MonoBehaviour {
 
 	public static int speedingTime;
 
+	public static int fireTime;
+
 	public static List<Vector2> traceList = new List<Vector2>();
 
 
@@ -28,6 +30,7 @@ public class GameScript : MonoBehaviour {
 	void Start () {
 		speed = 0f;
 		speedingTime = 0;
+		fireTime = 0;
 	}
 	
 	// Update is called once per frame
@@ -35,9 +38,13 @@ public class GameScript : MonoBehaviour {
 		//snake_length += 0.001f;
 		int rand = (int)Random.Range(0, 1000);
 		if (rand == 500) {
-			Vector3 pos = new Vector3 (Random.Range(-9f, 9f), Random.Range(-4f, 4f));
+			Vector3 pos = new Vector3 (Random.Range (-9f, 9f), Random.Range (-4f, 4f));
 			GameObject speedPotionPrefab = Resources.Load<GameObject> ("SpeedPotion") as GameObject;
 			Instantiate (speedPotionPrefab, pos, Quaternion.identity);
+		} else if (rand == 501) {
+			Vector3 pos = new Vector3 (Random.Range (-9f, 9f), Random.Range (-4f, 4f));
+			GameObject firePotionPrefab = Resources.Load<GameObject> ("FirePotion") as GameObject;
+			Instantiate (firePotionPrefab, pos, Quaternion.identity);
 		}
 	}
 
